@@ -11,7 +11,7 @@ window.addEventListener('load', async () => {
   const init = async () => {
     const data = [];
     try {
-      const greetings = await getGreetingsByUser('ilkka');
+      const greetings = await getGreetingsByUser(username);
        for (const message of greetings) {
         data.push(message);
       }
