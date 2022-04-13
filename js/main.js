@@ -1,10 +1,10 @@
 'use strict';
 
-window.addEventListener('load', async () => {
+(async () => {
   const ul = document.querySelector('ul');
   const rfrsh = document.querySelector('#refresh');
   const form = document.querySelector('form');
-  const username = 'changeThis';
+  const username = prompt('Enter username');
   const greeting = form.elements.greeting;
   console.log('hello');
 
@@ -29,4 +29,4 @@ window.addEventListener('load', async () => {
   init();
 
   rfrsh.addEventListener('click', init);
-});
+})();
