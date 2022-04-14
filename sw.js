@@ -40,3 +40,17 @@ self.addEventListener('fetch', (e) => {
     }
   })());
 });
+
+self.addEventListener('sync', async (event) => {
+  if(event.tag === 'send-message') {
+      try {
+        // load messages from db
+        const outbox = await loadData('outbox');
+        const sentMessages = await Promise.all(outbox.map(async (message) => await saveGreeting(message)));
+        console.log('SentMessages', sentMessages);
+        await clearData('outbox');
+      } catch (error) {
+        console.log('sync', error);
+      }
+  }
+});
